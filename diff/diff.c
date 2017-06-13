@@ -309,7 +309,7 @@ char* get_line(t_file* file,int index)
 void print_line_file(t_file* file, int num_file, int start, int end)
 {
     //file is file 1 the char is < else is >
-    //TODO char file_sign = (num_file==1)?'<':'>';
+    char file_sign = (num_file==1)?'<':'>';
     int i;
 
     //we print line between the index in param

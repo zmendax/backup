@@ -118,7 +118,7 @@ unsigned int backup_file(char *from, char *to, long jtime, alist *flist)
 
       if(mtime > jtime)
       {
-        printf("Incr %s added\n", base_a.c_str());
+        printf("File %s added\n", base_a.c_str());
         get_sha1(strdup(ctime), ctime);
         flist->append(strdup(ctime));
         copy_file(FROM, to, base_a.c_str(), mode);

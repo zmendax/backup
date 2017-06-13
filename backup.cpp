@@ -57,6 +57,7 @@ void db_inc()
   else
   {
     run_script(EXPORT_SCRIPT);
+    run_script(SED_SCRIPT);
     printf("Caculating diff data between old.sql and new.sql\n");
     diff(OLD_DATA, NEW_DATA);
     rename(NEW_DATA, OLD_DATA);
@@ -67,6 +68,15 @@ void db_inc()
   printf("Finished\n");
 }
 
+void db_restore()
+{
+  if (!access(EDIT_DATA, 0) && !access(FULL_DATA, 0))
+  {
+    printf("Files checked all.\n");
+    run_script(RESTORE_SCRIPT);
+    printf("Finished\n");
+  }
+}
 
 int main(int argc, char *argv[])
 {
@@ -79,17 +89,32 @@ Version 0.1 (10 May 2017)\n\
 Defined Jobs:\n\
 1: The Job of backing up file data\n\
 2: The Job of backing up DB data\n\
-Select the Job type (1-2):";
+3: The Job of restore DB data\n\
+Select the Job type (1-3):";
 
-  printf("%s", tips);
-  scanf("%d", &ch);
+  while(1)
+  {
+    printf("%s", tips);
+    scanf("%d", &ch);
 
-  if (ch == 1)
-  {
-  	file_inc(from, to);
-  } else if (ch == 2)
-  {
-    db_inc();
+    switch(ch)
+    {
+      case 1: 
+      file_inc(from, to);
+      break;
+
+      case 2:
+      db_inc();
+      break;
+
+      case 3:
+      db_restore();
+      break;
+
+      default:
+      printf("Wrong command, please input again.\n");
+    }
   }
+  
   return 0;
 }

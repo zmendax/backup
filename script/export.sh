@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mysqldump -uroot -proot backup > "${HOME}/bacula/SQLbackup/new.sql"
+mysqldump -uroot -proot example > "${HOME}/bacula/SQLbackup/new.sql"

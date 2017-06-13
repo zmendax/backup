@@ -1,0 +1,1 @@
+patch -p0 ~/bacula/SQLbackup/full.sql < ~/bacula/SQLrestore/edit.sql -o ~/bacula/SQLbackup/now.sql

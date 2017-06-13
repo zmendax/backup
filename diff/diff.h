@@ -14,7 +14,7 @@ typedef struct s_file
 
 FILE *fp;
 
-#define EDIT_FILE "/home/mendax/bacula/SQLrestore/edit"
+#define EDIT_FILE "/home/mendax/bacula/SQLrestore/edit.sql"
 
 
 t_file* file_create(char* file_name);
